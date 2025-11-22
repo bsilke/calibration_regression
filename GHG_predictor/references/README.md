@@ -8,7 +8,7 @@ The project directly addresses the significant real-world problem of the large d
 
 The resulting insights will provide policymakers, ESG investors, consultants, and the public with crucial information. This information is intended to rapidly identify reporting gaps, target interventions efficiently, and improve the design of effective policies that drive global corporate accountability and climate action.
 
-
+############################
 
 ## Data Source
 The project uses publicly available data from the  Net Zero Tracker (https://zerotracker.net) 
