@@ -209,6 +209,7 @@ __marimo__/
 
 # Ignore macOS specific files
 .DS_Store
+GHG_predictor/.DS_Store
 
 # Ignore all files in a specific directory:
 /lecture_notes
