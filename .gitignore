@@ -211,4 +211,4 @@ __marimo__/
 .DS_Store
 
 # Ignore all files in a specific directory:
-GHG_predictor/lecture_notes
+/lecture_notes
