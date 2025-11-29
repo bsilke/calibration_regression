@@ -214,3 +214,7 @@ GHG_predictor/.DS_Store
 # Ignore all files in a specific directory:
 /lecture_notes
 /data/meters/raw
+/data/meters/cleaned
+/data/weather_data
+/data/metadata
+/other_files
