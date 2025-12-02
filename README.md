@@ -260,7 +260,7 @@ Based on the analysis, the following actions are recommended for maximum CO₂ r
 
 ## Limitations
 
-The model explains 68% of EUI variance, leaving 32% unexplained by factors not captured (occupancy patterns, operational schedules, equipment age, building envelope quality). The geographic concentration of savings in Westminster may reflect genuine inefficiency patterns or dataset composition. This analysis identifies where savings exist but does not evaluate retrofit costs or payback periods. Results are based on a single year of data.
+The model explains 68% of EUI variance, leaving 32% unexplained by factors not captured (occupancy patterns, operational schedules, equipment age, building envelope quality). The geographic concentration of savings in Westminster may reflect genuine inefficiency patterns or dataset composition. This analysis identifies where savings exist but does not evaluate retrofit costs or payback periods. Wile the dataset covers two years (2016–2017), performance patterns may shift over longer time horizons.
 
 ---
 
