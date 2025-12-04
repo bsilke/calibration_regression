@@ -283,9 +283,11 @@ To ensure the model is valid for portfolio benchmarking, multiple splitting stra
 
 ## Limitations
 
+
 The model explains ~70% of EUI variance, leaving 30% unexplained by factors not captured (occupancy patterns, operational schedules, equipment age, building envelope quality). The geographic concentration of savings in Westminster may reflect genuine inefficiency patterns or dataset composition. This analysis identifies where savings exist but does not evaluate retrofit costs or payback periods. Results are based on aggregated annual data from 2016-2017.
 
 **Generalizability:** While the model performs well on known buildings across years (temporal validation), it cannot reliably predict EUI for entirely new sites. This is because the dataset contains only 18 unique sites, and the model learns site-specific patterns that don't transfer to unseen locations.
+
 
 ---
 
