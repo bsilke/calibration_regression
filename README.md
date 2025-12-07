@@ -1,109 +1,16 @@
-<!-- # Decarbonizing the Built Environment: Identifying High-Impact Opportunities within the Building Data Genome Project 2 (BDG2)
-
-* * * * *
-
-## The Context: Staying Within the 1.5°C Carbon Budget
-
-The recent Emissions Gap Report underscores a critical global challenge: to have a high likelihood (more than 80%) of staying within the 1.5∘C warming threshold, the world has a remaining carbon budget of approximately 300 gigatonnes of global 
-CO<sub>2</sub> emissions.
-
-The built environment (buildings sector) is a major contributor to global energy consumption and associated CO<sub>2</sub> emissions, offering substantial potential for immediate and scalable reductions. This project employs ML regression techniques to pinpoint specific inefficiencies within real-world building data, thereby providing actionable insights.
-
-## Project Goal
-
-The primary goal of this project is to analyze the energy consumption data of non-residential buildings provided by the BDG2 dataset to:
-
-1.  Establish a predictive baseline for building energy consumption.
-2.  Identify buildings that are significantly underperforming compared to similar buildngs. <!-- and climate conditions. -->
-3. Identify the drivers of CO<sub>2</sub> emissions in buildings.
-<!-- 4.  Quantify the potential CO<sub>2</sub> emission reductions achievable through operational improvements and retrofits in these high-impact buildings. -->
-
-## Dataset
-
-**Building Data Genome Project 2 (BDG2)**
-
-BDG2 is an open data set made up of 3,053 energy meters from 1,636 buildings. The time range of the times-series data is two full years from 2016 to 2017 and the frequency is hourly measurements of electricity, heating and cooling water, steam, and irrigation meters.
-
-The BDGE dataset consists of three primary types of data:
-
-**Building Metadata:** Contains information about the buildings, including their types, locations, and specific characteristics that may influence energy consumption (e.g., floor area, building age, and facility type).
-
-**Meter Data:** Includes readings from various energy meters installed in the buildings, capturing consumption data for different types of energy sources - electricity, chilled water, steam, hot water, and gas. The meter data is detailed, showing usage over time, typically recorded on an hourly basis.
-
-**Weather Information:** Provides local weather data relevant to the buildings' locations. This part of the dataset includes temperature, humidity, wind speed, and other weather-related variables that can significantly affect energy consumption patterns.
-
-**Dataset Source:** GitHub Repository: https://github.com/mahishah19/Energy-Prediction-Using-BDG2-Data/blob/main/README.md
-
-## Methodology
-
-A simplified, cross-sectional regression approach is employed, rather than more complex time-series analysis:
-
-1.  **Data Aggregation:** Hourly time-series data is aggregated to annual summary statistics (e.g., total annual kWh consumption, total heating/cooling degree days). This transforms the data into a single observation per building per year.
-2.  **Features:** Key predictors like building floor area, age, type, climate zone, and aggregated weather metrics are used as independent variables.
-    * Aggregate hourly weather data into annual summaries like Total_Heating_Degree_Days (HDD) and Total_Cooling_Degree_Days (CDD).
-3.  **Regression Modeling:** A robust regression model (e.g., Linear Regression and Random Forest) is trained to predict the "expected" energy use based on these features.
-4. **Efficiency Analysis:** Compare actual consumption to the model's predicted consumption to identify buildings with significant excess usage, indicating high potential for CO2 reduction.
-<!-- 5.  **Anomaly Detection & Quantification:** Buildings consuming significantly more energy than their predicted baseline are flagged as high-potential candidates for efficiency improvements. The difference is used to calculate potential energy savings.
-6. **CO<sub>2</sub>Calculation:** Regional emission factors are applied to the quantified energy savings to determine actual tons of CO<sub>2</sub> reduction potential. -->
-
-<!-- ## Project Structure
-
-The repository is structured to produce a comprehensive final report and supporting code:
-
-| Folder | Description |
-| ------- | ----------- |
-| `jupyter_notebooks/` | Jupyter notebooks for data cleaning, aggregation, modeling, and analysis. |
-| `data/` | Contains the raw and cleaned BDG2 data files |
-| `src/` | Helper scripts for data processing and model evaluation. |
-| `report/` | Final project report and presentation files. |
- -->
-
-
-## Repository structure
-
-    .
-    ├── jupyter_notebooks/
-    │   ├── preprocessing/
-    │   └── modelling/
-    ├── data/
-    │   ├── meters/
-    │   │   ├── raw/
-    │   │   └── cleaned/
-    │   ├── metadata/
-    │   └── weather/
-    ├── report/
-    └── README.md
-
-
-
-
-## Key Technologies & Libraries
-
--   Python
--   Pandas (Data manipulation and aggregation)
--   Scikit-learn (Modeling and validation)
--   Matplotlib/Seaborn (Visualization)
-
-
-## Getting Started
-
-* The data cleaning steps can be found in ...
-* The modelling part can be found in ...
-* The project report is in ... -->
-
-
-
-
-
 # Decarbonizing the Built Environment: Identifying High-Impact Opportunities within the Building Data Genome Project 2 (BDG2)
 
 ---
 
 ## The Context: Staying Within the 1.5°C Carbon Budget
 
-The recent Emissions Gap Report underscores a critical global challenge: to have a high likelihood (more than 80%) of staying within the 1.5°C warming threshold, the world has a remaining carbon budget of approximately 300 gigatonnes of global CO₂ emissions.
+The UN Environment Programme (UNEP) Emissions Gap Report 2025 states that the remaining carbon budget for a 66% likelihood of limiting warming to 1.5°C is only approximately 80 GtCO₂, a budget expected to be exhausted before 2030 at current emission rates of roughly 40 GtCO₂ annually (Forster et al., 2025; UN Environment Programme, 2025). As the built environment is a major contributor to global energy consumption and associated \(\text{CO}_{2}\) emissions, it offers substantial potential for immediate and scalable reductions. This project directly addresses this potential by employing machine learning (ML) regression techniques to pinpoint specific inefficiencies within real-world building data, providing actionable insights for targeted carbon reduction strategies.
 
-The built environment (buildings sector) is a major contributor to global energy consumption and associated CO₂ emissions, offering substantial potential for immediate and scalable reductions. This project employs ML regression techniques to pinpoint specific inefficiencies within real-world building data, thereby providing actionable insights for targeted carbon reduction strategies.
+<ins>References:</ins>
+
+Forster, P. M., Smith, C., Walsh, T., Lamb, W. F., Lamboll, R., Cassou, C., et al. (2025). Indicators of global climate change 2024: annual update of key indicators of the state of the climate system and human influence
+
+UN Environment Programme. (2025). Emissions gap report 2025: Off target — Continued collective inaction puts global temperature goal at risk. Nairobi.
 
 ---
 
@@ -123,25 +30,25 @@ The primary goal of this project is to analyze the energy consumption data of no
 ### Model Performance
 
 | Model | Train R² | Test R² |
-|-------|----------|---------||
+|-------|----------|---------|
 | Linear Regression | 0.428 | 0.437 |
 | **Tuned Random Forest** | **0.808** | **0.702** |
 | Tuned LightGBM | 0.794 | 0.711 |
 
 The tuned models explain **~70% of EUI variance**, with LightGBM slightly outperforming Random Forest. This represents a significant improvement over linear regression (44% R²).
 
-> **Note on Model Generalizability:** We prioritize model transferability over marginal accuracy gains. The model uses only building characteristics (type, region, meter, year built, climate) without site-specific identifiers, ensuring insights can generalize to new buildings outside the training data.
+> **Note on Model Scope:** While the model uses only building characteristics (type, region, meter, year built, climate) without explicit site identifiers, validation shows it cannot generalize to entirely new sites (group split R² < 0). The model is best suited for benchmarking buildings within an existing portfolio, not predicting EUI for new locations.
 
 ### Savings Potential Analysis
 
-From 1,170 test buildings, **649 underperformers (55.5%)** were identified with a total savings potential of **4.95 million kWh/sqm**.
+From 1,166 test buildings, **649 underperformers (55.7%)** were identified with a total savings potential of **4.95 million kWh/sqm**.
 
 | Breakdown | Savings (kWh/sqm) | % of Total |
 |-----------|-------------------|------------|
 | **Chilledwater (cooling)** | 3,391,526 | **68.5%** |
 | **Hotwater (heating)** | 1,371,099 | **27.7%** |
-| Electricity (direct) | 114,625 | 2.3% |
-| Gas (Scope 1) | 77,021 | 1.6% |
+| Gas | 50,685 | 1.0% |
+| Electricity | 37,709 | 0.8% |
 
 ### Key Insight
 
@@ -175,16 +82,18 @@ The dataset consists of three primary components:
 
 A cross-sectional regression approach was employed:
 
-1. **Data Aggregation:** Hourly time-series data aggregated to annual summary statistics
-2. **Features Used:**
+1. **Data Aggregation:** Hourly meter readings were summed to annual totals per building-meter-year combination, then converted to Energy Use Intensity (EUI = kWh/sqm)
+2. **Target Variable:** `log_eui` — log-transformed EUI using `log1p(eui)` to handle skewed distribution
+3. **Features Used:**
    - Categorical: `primaryspaceusage`, `region`, `meter`
    - Numerical: `yearbuilt`, `Avg_AirTemp_Annual`
 3. **Missing Data Handling:**
    - `region`: Temperature-based imputation (before train/test split)
    - `yearbuilt`: Group-wise median imputation by site (after split to prevent leakage)
 4. **Modeling:** Random Forest with hyperparameter tuning via RandomizedSearchCV (5-fold CV)
-5. **Validation:** LightGBM comparison to confirm robustness
-6. **Efficiency Analysis:** Buildings with positive residuals (actual > predicted) flagged as underperformers
+5. **Benchmark:** Linear Regression as baseline to quantify ensemble model improvement
+6. **Validation:** LightGBM comparison to confirm robustness
+7. **Efficiency Analysis:** Buildings with positive residuals (actual > predicted) flagged as underperformers
 
 ---
 
@@ -194,18 +103,23 @@ A cross-sectional regression approach was employed:
     .
     ├── jupyter_notebooks/
     │   ├── meta_data_preprocessing.ipynb      # Metadata cleaning
-    │   ├── meter_data_preprocessing.ipynb     # Raw meter data processing
     │   ├── meter_data_cleaned_preprocessing.ipynb  # Cleaned meter aggregation
     │   ├── weather_preprocessing.ipynb        # Weather data processing
     │   ├── EDA.ipynb                          # Exploratory data analysis
-    │   └── modeling_cleaned.ipynb             # Main modeling notebook ⭐
+    │   └── modeling_final.ipynb               # Final modeling notebook ⭐
     ├── data/
-    │   ├── meters/
-    │   │   ├── raw/                           # Original meter CSVs
-    │   │   └── cleaned/                       # Processed meter data
-    │   ├── metadata/                          # Building metadata
-    │   └── weather_data/                      # Weather information
-    ├── lecture_notes/                         # Reference materials
+    │   ├── df_analysis.csv                    # Dataset for the analysis
+    ├── report/
+    │   ├── final_report.md                    # Technical report & AI ethical considerations
+    │   └── figures/                           # Exported visualizations
+    │       ├── model_comparison.png           # Model performance comparison
+    │       ├── predicted_vs_actual.png        # Prediction scatter plot
+    │       ├── residuals_distribution.png     # Residuals histogram
+    │       ├── feature_importance.png         # RF feature importances
+    │       ├── shap_summary.png               # SHAP value summary
+    │       ├── regional_bias.png              # Regional bias analysis
+    │       ├── savings_by_meter.png           # Savings by meter type
+    │       └── savings_by_region.png          # Savings by region
     └── README.md
 
 
@@ -218,6 +132,7 @@ A cross-sectional regression approach was employed:
 - **NumPy** — Numerical operations
 - **Scikit-learn** — Modeling, preprocessing, cross-validation
 - **LightGBM** — Gradient boosting for model validation
+- **SHAP** — Model interpretability and feature importance
 - **Matplotlib/Seaborn** — Visualization
 
 ---
@@ -227,23 +142,24 @@ A cross-sectional regression approach was employed:
 ### Prerequisites
 
 \`\`\`bash
-pip install pandas numpy scikit-learn lightgbm matplotlib seaborn
+pip install pandas numpy scikit-learn lightgbm shap matplotlib seaborn
 \`\`\`
 
 ### Running the Analysis
 
-1. **Data Preprocessing:** Run the preprocessing notebooks in order:
-   - `meta_data_preprocessing.ipynb`
-   - `meter_data_preprocessing.ipynb`
-   - `meter_data_cleaned_preprocessing.ipynb`
-   - `weather_preprocessing.ipynb`
-
-2. **Modeling:** Open and run `modeling_cleaned.ipynb` — this is the main analysis notebook containing:
+1. **Modeling:** Open and run `modeling_final.ipynb` — this is the main analysis notebook containing:
    - Model training and hyperparameter tuning
-   - Feature importance analysis
+   - Feature importance analysis (SHAP values)
+   - Cross-validation and error metrics (R², RMSE, MSE)
+   - Regional bias analysis
    - Savings potential calculations by building type, region, and meter
    - Top 10 priority buildings for retrofit
    - Limitations and recommendations
+
+2. **Final Report:** See `report/final_report.md` for the complete technical report including:
+   - Executive summary for stakeholders
+   - Technical pipeline documentation
+   - AI ethical considerations and fairness analysis
 
 ---
 
@@ -261,16 +177,16 @@ Based on the analysis, the following actions are recommended for maximum CO₂ r
 
 ## Model Validation & Robustness Checks
 
-To ensure the model is valid for portfolio benchmarking, multiple splitting strategies were tested:
+To ensure the model is valid for portfolio benchmarking, multiple splitting strategies were tested with Random Forest:
 
-| Split Strategy | RF Test R² | LightGBM Test R² | Purpose |
-|----------------|------------|------------------|---------|
-| Random Split | 0.702 | 0.711 | Baseline performance |
-| **Temporal Split (2016→2017)** | **0.750** | **0.761** | Predict same buildings across years |
-| Group Split (new sites) | -0.08 | -0.33 | Test generalization to unseen sites |
+| Split Strategy | RF Test R² | Purpose |
+|----------------|------------|---------|
+| Random Split | 0.702 | Baseline performance |
+| **Temporal Split (2016→2017)** | **0.750** | Predict same buildings across years |
+| Group Split (new sites) | -0.08 | Test generalization to unseen sites |
 
 **Key Findings:**
-- ✅ **Temporal split validates portfolio benchmarking** — The model achieves 75-76% R² when trained on 2016 data and tested on 2017 data for the same buildings
+- ✅ **Temporal split validates portfolio benchmarking** — The model achieves 75% R² when trained on 2016 data and tested on 2017 data for the same buildings
 - ✅ **98.9% building overlap** confirms the model learns stable building characteristics
 - ❌ **Group split fails** — The model cannot generalize to entirely new sites (negative R²)
 
@@ -283,8 +199,11 @@ To ensure the model is valid for portfolio benchmarking, multiple splitting stra
 
 ## Limitations
 
+The model explains ~70% of log EUI variance, leaving 30% unexplained by factors not captured (occupancy patterns, operational schedules, equipment age, building envelope quality). The geographic concentration of savings in Westminster may reflect genuine inefficiency patterns or dataset composition. This analysis identifies buildings with savings potential but does not estimate retrofit costs, implementation feasibility, or payback periods. All results are derived from aggregated annual energy data for 2016-2017.
 
-The model explains ~70% of EUI variance, leaving 30% unexplained by factors not captured (occupancy patterns, operational schedules, equipment age, building envelope quality). The geographic concentration of savings in Westminster may reflect genuine inefficiency patterns or dataset composition. This analysis identifies where savings exist but does not evaluate retrofit costs or payback periods. Results are based on aggregated annual data from 2016-2017.
+Retrofit costs are not estimated because the BDG2 dataset does not include information on upgrade measures, financial costs, or local pricing—only energy, building, and weather data are available.
+
+**Regional Variation:** While ANOVA testing did not find statistically significant differences across regions (p = 0.37), practical concerns remain. Princeton and Westminster show ~150-160% higher RMSE than average. Zoutkamp shows statistically significant systematic under-prediction (t-test p = 0.03). See `report/final_report.md` for a full ethical reflection on fairness implications.
 
 **Generalizability:** While the model performs well on known buildings across years (temporal validation), it cannot reliably predict EUI for entirely new sites. This is because the dataset contains only 18 unique sites, and the model learns site-specific patterns that don't transfer to unseen locations.
 

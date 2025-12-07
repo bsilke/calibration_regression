@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>final_report.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="building-energy-efficiency-analysis-identifying-underperforming-buildings-using-machine-learning">Building Energy Efficiency Analysis: Identifying Underperforming Buildings Using Machine Learning</h1>
+<p><strong>Technical Report | December 2025</strong></p>
+<hr>
+<h2 id="executive-summary-stakeholder-facing">Executive Summary (Stakeholder-Facing)</h2>
+<h3 id="the-problem">The Problem</h3>
+<p><strong>Non-residential buildings in our portfolio consume 30% more energy than necessary, representing significant cost and carbon waste.</strong> Current energy management relies on reactive approaches—addressing issues only after they become costly problems. Without predictive tools, facilities managers cannot systematically identify which buildings are underperforming or prioritize interventions effectively.</p>
+<p><strong>Our analysis of 1,636 buildings reveals that 56% of buildings exceed their predicted energy use intensity (log EUI), with the top 10 underperformers alone accounting for over 53% of total potential energy savings.</strong> Thermal systems (chilledwater and hotwater) represent 96% of the savings opportunity.</p>
+<p><strong>A machine learning model was developed that predicts building EUI with 70% accuracy (R² = 0.702), enabling identification of underperforming buildings before conducting expensive on-site audits.</strong> By targeting the top 50 underperformers first, facilities teams can capture the majority of savings potential with focused effort.</p>
+<h3 id="key-findings-at-a-glance">Key Findings at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buildings analyzed</td>
+<td>1,636</td>
+</tr>
+<tr>
+<td>Model accuracy (R²)</td>
+<td>70.2%</td>
+</tr>
+<tr>
+<td>Buildings underperforming</td>
+<td>55.7% of portfolio</td>
+</tr>
+<tr>
+<td>Top savings opportunity</td>
+<td>Westminster region (90.9% of total)</td>
+</tr>
+<tr>
+<td>Primary drivers</td>
+<td>Thermal systems (chilledwater, hotwater)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-introduction">1. Introduction</h2>
+<h3 id="11-background">1.1 Background</h3>
+<p>The operation of buildings account for 30% of global final energy consumption and 26% of global energy-related emissions (International Energy Agency, 2024). Identifying and addressing energy inefficiency in commercial buildings represents an effective decarbonization strategy (International Renewable Energy Agency, 2023).</p>
+<p>This project analyzes the Building Data Genome Project 2 (BDG2) dataset to develop a machine learning model that:</p>
+<ol>
+<li>Predicts expected energy use intensity (EUI) for buildings based on their characteristics</li>
+<li>Identifies buildings consuming significantly more energy than predicted</li>
+<li>Quantifies savings potential and prioritizes intervention targets</li>
+</ol>
+<p><ins>References:</ins></p>
+<p>International Energy Agency. (2024). Buildings. IEA. www.iea.org</p>
+<p>International Renewable Energy Agency. (2023). World energy transitions outlook 2023: 1.5°c pathway. IRENA.</p>
+<h3 id="12-dataset-overview">1.2 Dataset Overview</h3>
+<p><strong>Building Data Genome Project 2 (BDG2)</strong> contains:</p>
+<ul>
+<li><strong>3,053 energy meters</strong> from <strong>1,636 non-residential buildings</strong></li>
+<li><strong>Two years of hourly data</strong> (2016-2017)</li>
+<li><strong>Multiple meter types</strong>: electricity, chilledwater, steam, hotwater, gas, irrigation, solar</li>
+<li><strong>Building metadata</strong>: site/building IDs, primary space usage, floor area (sqm/sqft), location (lat/lng), timezone, year built, number of floors, occupants, heating type, energy ratings (Energy Star, LEED). <em>Note: Many metadata fields had high rates of missing values (e.g., occupants, heating type, energy ratings), limiting the features available for modeling.</em></li>
+<li><strong>Weather data</strong>: hourly temperature measurements per site</li>
+</ul>
+<hr>
+<h2 id="2-technical-pipeline">2. Technical Pipeline</h2>
+<h3 id="21-data-preprocessing">2.1 Data Preprocessing</h3>
+<p><strong>Data Sources Merged:</strong></p>
+<ul>
+<li>Meter readings (hourly → annual totals per building-meter-year)</li>
+<li>Building metadata</li>
+<li>Weather data (hourly → annual average temperature per site-year)</li>
+</ul>
+<p><strong>Feature Engineering:</strong></p>
+<ul>
+<li>Created Energy Use Intensity (EUI) = total_meter_reading / sqft</li>
+<li>Applied log transformation: <code>log_eui = log1p(eui)</code> to handle skewed distribution</li>
+</ul>
+<p><strong>Missing Data Handling:</strong></p>
+<ul>
+<li>Imputed missing <code>region</code> values (~3% of records) using temperature matching (assigned to region with closest median annual temperature)</li>
+<li>Developed custom <code>GroupMedianImputer</code> to impute missing <code>yearbuilt</code> values (~15% of records) using site-level medians</li>
+<li>Removed 55 records with missing <code>primaryspaceusage</code> and 17 exact duplicates (72 total removed)</li>
+</ul>
+<p><strong>Final Features (5):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Avg_AirTemp_Annual</code></td>
+<td>Numerical</td>
+<td>Annual average temperature</td>
+</tr>
+<tr>
+<td><code>yearbuilt</code></td>
+<td>Numerical</td>
+<td>Building construction year</td>
+</tr>
+<tr>
+<td><code>meter</code></td>
+<td>Categorical</td>
+<td>Meter type (electricity, chilledwater, etc.)</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td>Categorical</td>
+<td>Geographic region</td>
+</tr>
+<tr>
+<td><code>primaryspaceusage</code></td>
+<td>Categorical</td>
+<td>Building use type</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-train-test-split-strategy">2.2 Train-Test Split Strategy</h3>
+<p><strong>Primary Split (Baseline):</strong> Used <code>train_test_split</code> with random sampling:</p>
+<ul>
+<li>80% train, 20% test</li>
+<li>Random state fixed for reproducibility</li>
+<li>Note: Same site may appear in both train and test (different meters/years), potentially inflating test performance because the model partially &quot;memorized&quot; site characteristics rather than learning generalizable building energy patterns.</li>
+<li><ins>Example:</ins>
+<ul>
+<li>A single building site (e.g., site_id &quot;Bear_Tiffany&quot;) might have multiple records in the dataset—one for electricity in 2016, another for chilledwater in 2017, etc.</li>
+<li>With a random split, the 2016 electricity record could end up in the training set while the 2017 chilledwater record ends up in the test set</li>
+<li>This means the model has &quot;seen&quot; information about that site during training, which could inflate test performance</li>
+</ul>
+</li>
+</ul>
+<p><strong>Robustness Validation:</strong> Additional split strategies tested to assess generalizability:</p>
+<ul>
+<li><strong>Temporal Split</strong>: Train on 2016, test on 2017</li>
+<li><strong>Group Split</strong>: <code>GroupShuffleSplit</code> by <code>site_id</code> ensures no site in both sets</li>
+</ul>
+<hr>
+<h2 id="3-model-comparison">3. Model Comparison</h2>
+<h3 id="31-models-evaluated">3.1 Models Evaluated</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linear Regression</strong></td>
+<td>Baseline interpretable model</td>
+</tr>
+<tr>
+<td><strong>Random Forest</strong></td>
+<td>Ensemble method, handles non-linear relationships</td>
+</tr>
+<tr>
+<td><strong>LightGBM</strong></td>
+<td>Gradient boosting, efficient for large datasets</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-performance-results">3.2 Performance Results</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Train R²</th>
+<th>Test R²</th>
+<th>Train MSE</th>
+<th>Test MSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear Regression</td>
+<td>0.428</td>
+<td>0.437</td>
+<td>2.781</td>
+<td>3.094</td>
+</tr>
+<tr>
+<td><strong>Random Forest</strong></td>
+<td><strong>0.808</strong></td>
+<td><strong>0.702</strong></td>
+<td><strong>0.936</strong></td>
+<td><strong>1.638</strong></td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>0.794</td>
+<td>0.711</td>
+<td>1.004</td>
+<td>1.589</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Selected Model: Random Forest</strong> (comparable performance to LightGBM, better interpretability via feature importances)</p>
+<h3 id="33-hyperparameter-tuning">3.3 Hyperparameter Tuning</h3>
+<p>Used RandomizedSearchCV with 5-fold cross-validation:</p>
+<p><strong>Best Parameters:</strong></p>
+<ul>
+<li><code>n_estimators</code>: 58</li>
+<li><code>max_depth</code>: None (unlimited)</li>
+<li><code>min_samples_split</code>: 8</li>
+<li><code>min_samples_leaf</code>: 1</li>
+</ul>
+<p><strong>Cross-Validation Results:</strong></p>
+<ul>
+<li>Mean CV R²: 0.677</li>
+<li>Standard Deviation: 0.028</li>
+<li>Indicates stable, generalizable performance</li>
+</ul>
+<h3 id="34-error-analysis">3.4 Error Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MSE</td>
+<td>1.638</td>
+<td>Mean squared error in log scale</td>
+</tr>
+<tr>
+<td>RMSE</td>
+<td>1.280</td>
+<td>~25% of target mean</td>
+</tr>
+<tr>
+<td>R²</td>
+<td>0.702</td>
+<td>Explains 70% of log EUI variance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diagnostic Checks (All Passed):</strong></p>
+<ul>
+<li>✓ Linear relationship between predictions and actuals (correlation &gt; 0.8)</li>
+<li>✓ Residuals centered around zero (mean ≈ 0)</li>
+<li>✓ Few outliers (&lt;5% of predictions with &gt;3 std residuals)</li>
+</ul>
+<hr>
+<h2 id="4-key-findings">4. Key Findings</h2>
+<h3 id="41-feature-importance">4.1 Feature Importance</h3>
+<p><strong>SHAP Analysis Results:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Mean |SHAP|</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region_Westminster</td>
+<td>0.46</td>
+<td>Highest impact—buildings there have higher EUI</td>
+</tr>
+<tr>
+<td>meter_chilledwater</td>
+<td>0.26</td>
+<td>Strong bidirectional effect</td>
+</tr>
+<tr>
+<td>meter_electricity</td>
+<td>0.25</td>
+<td>Strong bidirectional effect</td>
+</tr>
+<tr>
+<td>Avg_AirTemp_Annual</td>
+<td>0.25</td>
+<td>Higher temperature → higher EUI (cooling loads)</td>
+</tr>
+<tr>
+<td>region_Cardiff</td>
+<td>0.18</td>
+<td>Tends to decrease EUI (milder climate)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Mean |SHAP| is the mean absolute SHAP value—the average magnitude of each feature's contribution to predictions, ignoring direction.</em></p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>Geographic location (Westminster) is the strongest predictor</li>
+<li>Meter type significantly influences EUI patterns</li>
+<li>Climate (temperature) has meaningful but smaller effect</li>
+</ul>
+<h3 id="42-underperformer-analysis">4.2 Underperformer Analysis</h3>
+<p><strong>Definition:</strong> Buildings where Actual EUI &gt; Predicted EUI (positive residual)</p>
+<table>
+<thead>
+<tr>
+<th>Statistic</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Underperforming buildings</td>
+<td>55.7% of test set</td>
+</tr>
+<tr>
+<td>Average excess EUI</td>
+<td>0.5 log units</td>
+</tr>
+<tr>
+<td>Top 10 buildings</td>
+<td>53.2% of total savings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Savings by Region:</strong></p>
+<ul>
+<li>Westminster: 90.9% of total savings potential</li>
+<li>This concentration suggests either regional inefficiency patterns or dataset composition effects</li>
+</ul>
+<p><strong>Savings by Meter Type:</strong></p>
+<ul>
+<li>Chilledwater: 68.5% of savings</li>
+<li>Hotwater: 27.7% of savings</li>
+<li>Other (gas, water, electricity, etc.): 3.8% of savings</li>
+<li>Thermal systems (chilledwater + hotwater) dominate at 96.2%</li>
+</ul>
+<hr>
+<h2 id="5-visualizations">5. Visualizations</h2>
+<p>This section presents selected visualizations that illustrate the model's performance, feature relationships, potential biases, and actionable insights. Each figure is designed to highlight specific aspects of the analysis and support evidence-based decision-making.</p>
+<hr>
+<h3 id="51-model-performance-comparison">5.1 Model Performance Comparison</h3>
+<p><img src="figures/model_comparison.png" alt="Model Comparison"></p>
+<p><em>Figure 1: Comparison of R² scores across three regression models (Linear Regression, Random Forest, and LightGBM). Blue bars represent training performance; red bars represent test performance. Value labels on each bar show exact R² scores.</em></p>
+<p>The grouped bar chart in Figure 1 compares the predictive performance of three candidate models using the coefficient of determination (R²) on both training and test sets. The visual layout enables direct comparison of (1) accuracy differences across models and (2) overfitting tendencies (gap between train and test bars).
+The <strong>Random Forest (center)</strong> achieves the best test performance (R² = 0.702) while maintaining a reasonable train-test gap. In contrast, the <strong>Linear Regression (left)</strong> shows poor performance (R² ≈ 0.52), confirming that non-linear relationships exist in the data. Finally, the <strong>LightGBM (right)</strong> slightly outperforms Random Forest on test data (R² = 0.711). The visualization in Figure 1 justifies the selection of Random Forest as the final model. While LightGBM achieves marginally higher test R², Random Forest provides better interpretability through native feature importance measures and SHAP compatibility—critical for stakeholder communication in energy efficiency programs.</p>
+<hr>
+<h3 id="52-predicted-vs-actual-plot">5.2 Predicted vs Actual Plot</h3>
+<p><img src="figures/predicted_vs_actual.png" alt="Predicted vs Actual"></p>
+<p><em>Figure 2: Scatter plot of predicted vs actual log(EUI) values for all test set buildings. Color gradient (green→red) indicates absolute prediction error magnitude. The dashed diagonal line represents perfect prediction; the blue shaded band shows ±RMSE bounds. An annotation highlights the maximum deviation case.</em></p>
+<p>This diagnostic plot in Figure 2 is the primary visualization for assessing model accuracy. Each point represents one building-meter-year observation from the test set. Points falling on the diagonal indicate perfect predictions; vertical distance from the diagonal represents prediction error.
+Most points cluster tightly around the perfect prediction line, confirming the 70% R² performance. The <strong>±RMSE band</strong> (blue shading) captures the majority of predictions, demonstrating consistent model reliability across the log EUI range. The color gradient shows that green points (low error) dominate; red points (high error) are sparse, indicating few significant mispredictions. The <em>Maximum deviation annotation</em>* (red arrow) identifies the single worst prediction for follow-up investigation—this building may have data quality issues or truly different energy patterns.</p>
+<hr>
+<h3 id="53-residuals-distribution">5.3 Residuals Distribution</h3>
+<p><img src="figures/residuals_distribution.png" alt="Residuals Distribution"></p>
+<p><em>Figure 3: Histogram of prediction residuals (Actual − Predicted) for the test set. The red dashed line marks zero (perfect prediction); the orange solid line indicates the mean residual. Frequency on the y-axis shows the count of buildings in each residual bin.</em></p>
+<p>The histogram in Figure 3 examines the distribution of prediction errors to assess whether the model exhibits systematic bias. A well-calibrated model should produce residuals centered at zero with approximately symmetric distribution. The distribution peak aligns closely with the zero line (red dashed), indicating no systematic over- or under-prediction at the population level. The <strong>Mean residual</strong> (orange line) is pisitioned very close to zero, confirming unbiased predictions overall. Moreover, the histogram shows roughly equal spread on both positive (under-prediction) and negative (over-prediction) sides. Some outliers exist on both ends, representing buildings where predictions deviate substantially from reality. This visualization confirms that while individual predictions may have errors, the model does not systematically favor one direction. This is important for fairness—no building type or region should be consistently disadvantaged by prediction bias at the aggregate level. However, as explored in Section 5.6, regional subgroup analysis reveals localized biases not visible in this aggregate view.</p>
+<hr>
+<h3 id="54-feature-importance">5.4 Feature Importance</h3>
+<p><img src="figures/feature_importance.png" alt="Feature Importance"></p>
+<p><em>Figure 4: Horizontal bar chart showing the top 15 features by Random Forest importance score (mean decrease in impurity). Features are sorted in ascending order with the most important at the top. One-hot encoded categorical variables appear with their original category labels.</em></p>
+<p>The chart in Figure 4 reveals which input features contribute most to the model's predictions. Random Forest importance is calculated as the total decrease in node impurity (Gini importance) averaged across all trees, providing a measure of each feature's predictive power. Multiple region indicators (Westminster, Orlando, etc.) appear among the top features, indicating strong geographic patterns in energy consumption. Chilledwater, electricity, and hotwater meters have distinct importance scores, reflecting different energy consumption profiles. The continuous feature <code>airTemperature</code> ranks among the top 15, confirming that climate affects EUI.
+The superior performance of tree-based methods over Linear Regression suggests the presence of feature interactions (e.g., how meter type effects vary by region) and non-linear relationships with continuous variables that linear models cannot capture.</p>
+<hr>
+<h3 id="55-shap-summary-plot">5.5 SHAP Summary Plot</h3>
+<p><img src="figures/shap_summary.png" alt="SHAP Summary"></p>
+<p><em>Figure 5: SHAP (SHapley Additive exPlanations) summary plot showing feature contributions to predictions. Each row represents a feature; each dot represents one building. Horizontal position indicates SHAP value (impact on prediction); color indicates the feature value (red = high, blue = low for continuous features; presence/absence for binary indicators).</em></p>
+<p>Unlike traditional feature importance (which shows magnitude only), SHAP values reveal the <em>direction</em> of each feature's effect. This plot decomposes predictions into additive contributions from each feature, enabling interpretation of individual predictions and identification of non-linear relationships. Regarding the <strong>Westminster region</strong> (one-hot) indicator, red dots (Westminster = 1) cluster to the right, indicating that buildings in Westminster tend to have higher predicted log EUI. <strong>Chilledwater meter</strong>: shows bidirectional effects—buildings with chilledwater meters can have either higher or lower EUI depending on other factors. In the case of <strong>Avg. Air Temperature</strong> red dots (high temperature) consistently push predictions higher, confirming the intuitive relationship between climate and cooling demand. The spread of dots at each feature reflects variability in that feature's contribution across buildings—some buildings see larger or smaller impacts from the same feature. SHAP values provide the explainability needed for stakeholder communication. For any building, facilities managers can see which factors drive its expected EUI (e.g., &quot;Westminster location contributes +0.3 to predicted log(EUI)&quot;). This helps contextualize predictions: a building flagged as underperforming in Westminster is using more energy than expected despite already accounting for that region's typically higher consumption. This transparency supports informed decision-making about where to focus audits.</p>
+<hr>
+<h3 id="56-regional-bias-analysis">5.6 Regional Bias Analysis</h3>
+<p><img src="figures/regional_bias.png" alt="Regional Bias"></p>
+<p><em>Figure 6: Analysis of regional model performance. Left panel: RMSE by region (red bars indicate regions exceeding 130% of overall RMSE). Center panel: Mean residual showing systematic bias direction (positive = under-prediction, negative = over-prediction). Right panel: Sample size per region.</em></p>
+<p>These visualizations examine whether the model performs equitably across geographic regions—a critical fairness consideration. The three panels together reveal (1) where predictions are less accurate, (2) whether errors are systematically biased, and (3) whether sample size explains performance differences. The left panel <strong>Prediction Error by Region (RMSE)</strong> shows that Princeton (160% of overall), Westminster (150%), and Orlando (136%) have elevated prediction errors—stakeholders in these regions should be informed that predictions carry greater uncertainty. The center panel (<strong>Bias Direction</strong>) shows that Zoutkamp has a substantial positive mean residual (+0.33), indicating the model systematically <em>under-predicts</em> log EUI for buildings in this region—they appear more efficient than they are in reality. The right panel (<strong>Sample Size</strong>) reveals that regions with high error (Princeton, Zoutkamp) tend to have smaller sample sizes, suggesting insufficient training data may contribute to poor performance.
+This visualization directly supports the ethical reflection of Section 7. Although the overall ANOVA test was not significant (p = 0.37), these plots reveal meaningful regional disparities that warrant attention:</p>
+<ul>
+<li>Buildings in Zoutkamp may be overlooked for energy audits because they falsely appear efficient</li>
+<li>Predictions for Princeton and Westminster should be communicated with wider uncertainty bounds</li>
+<li>Future data collection should prioritize under-represented regions.</li>
+</ul>
+<hr>
+<h3 id="57-savings-potential-by-meter-type">5.7 Savings Potential by Meter Type</h3>
+<p><img src="figures/savings_by_meter.png" alt="Savings by Meter"></p>
+<p><em>Figure 7: Pie chart showing the distribution of total energy savings potential (kWh/sqm) across meter types for buildings identified as underperforming. The top two categories are visually &quot;exploded&quot; for emphasis. Legend shows absolute values and percentages.</em></p>
+<p>For buildings where actual log EUI exceeds predicted log EUI (underperformers), the chart in Figure 7 breaks down the total &quot;savings potential&quot; (actual − predicted) by energy meter type. This guides retrofit prioritization by identifying which energy systems contribute most to inefficiency. <strong>Chilledwater dominates</strong> (68.5%): Cooling systems represent the largest opportunity for energy savings, suggesting chiller plant optimization and building envelope improvements. Heating systems are the second priority (27.7%), particularly relevant for older buildings with inefficient boilers. Together, chilledwater and hotwater account for nearly all identified savings—direct electricity and gas inefficiencies are minimal.
+This finding has direct operational implications. Energy efficiency programs should focus on thermal systems (HVAC) rather than electricity-specific interventions. The extreme concentration (96%) provides a clear need for thermal retrofits. However, this may also reflect data availability—thermal meters may simply have more variance than electricity meters.</p>
+<hr>
+<h3 id="58-savings-potential-by-region">5.8 Savings Potential by Region</h3>
+<p><img src="figures/savings_by_region.png" alt="Savings by Region"></p>
+<p><em>Figure 8: Horizontal bar chart showing total energy savings potential by geographic region. Regions are sorted by savings magnitude. Red bars indicate regions accounting for &gt;50% of total savings. An annotation highlights the dominant region.</em></p>
+<p>The chart in Figure 8 reveals the geographic concentration of energy savings opportunities, enabling targeted deployment of retrofit programs. Buildings in regions with high total savings potential should be prioritized for energy audits. Westminster accounts for the vast majority of identified savings (90.9%). Some regions contribute minimal savings, suggesting limited efficiency problems or small building portfolios.
+The analysis has sh Westminster's dominance is due to real efficiency problems, not simply having more buildings:
+Westminster has only <strong>10.4% of test set buildings</strong> (121/1166) and <strong>10.2% of underperforming buildings</strong> (66/649). Yet Westminster accounts for <strong>90.9% of total savings potential</strong>. This inefficiency suggests Westminster's building stock has systemic problems—possibly older construction, deferred maintenance, or different building standards in England. This finding strongly supports prioritizing Westminster for energy audits, as the potential return on investment is dramatically higher than other regions.</p>
+<hr>
+<h2 id="6-model-limitations">6. Model Limitations</h2>
+<p>The model accounts for approximately 70% of the variance in outcomes, indicating a significant performance gap due to missing features like floor area, HVAC type, and occupancy data. A key finding is that while Westminster's 90.9% savings are genuine inefficiencies (114x higher per-building savings than other regions), the root causes, such as building age or maintenance standards, remain unverified.
+Generalizability concerns are significant; the model fails entirely when applied to completely new sites (group split R² &lt; 0) and must be restricted to the existing known portfolio of buildings.
+Prediction accuracy fluctuates significantly across different areas:
+High-error regions include Princeton (160% RMSE), Westminster (150%), and Orlando (136%).
+Zoutkamp exhibits a consistent bias toward under-prediction (+0.33 mean residual).
+Stakeholders in these specific high-error regions must be informed of the greater uncertainty surrounding their predictions.
+Ultimately, the model is limited by its reliance on only five available features and a two-year time horizon. Future improvements hinge entirely on incorporating richer metadata, such as the missing yearbuilt values that were previously imputed using site-level medians.</p>
+<hr>
+<h2 id="7-ethical-reflection">7. Ethical Reflection</h2>
+<h3 id="71-fairness-concerns">7.1 Fairness Concerns</h3>
+<p>The model exhibits <strong>regional variation in prediction accuracy</strong>, which raises practical concerns regarding equitable outcomes, despite overall statistical insignificance.</p>
+<ul>
+<li><strong>Unequal Accuracy</strong>: Buildings in high-error regions (Princeton: 160% RMSE, Westminster: 150%, Orlando: 136%) receive less reliable predictions, potentially leading to unfair resource allocation.</li>
+<li><strong>Systematic Bias in Zoutkamp</strong>: This region shows statistically significant under-prediction (mean residual +0.33), causing buildings to appear more efficient than they are in reality and risking genuinely inefficient sites being overlooked for interventions.</li>
+<li><strong>Small Sample Sizes</strong>: Regions with limited training data (e.g., Zoutkamp n=22, Ottawa n=23, Princeton n=37) may inherently have less reliable predictions, which disadvantages local facilities managers relying on those estimates.</li>
+</ul>
+<h2 id="72-environmental-implications">7.2 Environmental Implications</h2>
+<p>The data-driven approach facilitates environmental benefits, but model errors present risks.</p>
+<ul>
+<li><strong>Positive Impacts</strong>: Identifying underperforming buildings enables targeted energy efficiency improvements, and prioritizing high-impact thermal systems addresses the most significant opportunities effectively.</li>
+<li><strong>Concerns</strong>: Model errors could misdirect resources to already efficient buildings, systematically neglect the needs of certain regions due to bias, and over-reliance without on-site validation risks poor environmental decisions.</li>
+</ul>
+<h2 id="73-mitigation-commitments">7.3 Mitigation Commitments</h2>
+<p>To address these ethical concerns, the following steps are committed:</p>
+<ul>
+<li><strong>Transparency</strong>: All limitations are thoroughly documented and communicated to stakeholders.</li>
+<li><strong>Human Oversight</strong>: Model recommendations mandate validation before any major investment decisions.</li>
+<li><strong>Continuous Monitoring</strong>: Quarterly audits are implemented to detect performance degradation or emerging bias.</li>
+</ul>
+<hr>
+<h2 id="8-recommendations">8. Recommendations</h2>
+<h3 id="81-immediate-actions-0-3-months">8.1 Immediate Actions (0-3 months)</h3>
+<ol>
+<li><strong>Conduct energy audits</strong> on top 10 underperforming buildings identified by the model</li>
+<li><strong>Focus on thermal systems</strong> (chilledwater, hotwater) which represent 96% of savings</li>
+<li><strong>Flag Westminster buildings</strong> for priority review given concentration of savings potential</li>
+</ol>
+<h3 id="82-medium-term-actions-3-12-months">8.2 Medium-term Actions (3-12 months)</h3>
+<ol>
+<li><strong>Collect additional data</strong> (floor area, HVAC type, occupancy) to improve model accuracy</li>
+<li><strong>Develop region-specific models</strong> for high-error areas (Princeton, Westminster)</li>
+<li><strong>Implement monitoring dashboard</strong> to track prediction accuracy over time</li>
+</ol>
+<h3 id="83-long-term-strategy">8.3 Long-term Strategy</h3>
+<ol>
+<li><strong>Expand to new sites</strong> only after collecting sufficient training data</li>
+<li><strong>Integrate with building management systems</strong> for real-time anomaly detection</li>
+<li><strong>Develop cost-benefit models</strong> to prioritize retrofits by ROI, not just energy savings</li>
+</ol>
+<hr>
+<h2 id="9-conclusion">9. Conclusion</h2>
+<p>This analysis demonstrates that machine learning can effectively identify underperforming buildings, with a Random Forest model explaining 70% of EUI variance. The model identifies thermal systems in the Westminster region as the primary savings opportunity.</p>
+<p>However, responsible deployment requires acknowledging limitations: the model exhibits regional bias, cannot generalize to new sites, and explains only 70% of variance. These constraints should inform how the model is used—as a screening tool to prioritize investigation, not as a definitive judgment of building performance.</p>
+<p>By combining predictive modeling with on-site validation and continuous monitoring, facilities managers can systematically target energy efficiency improvements while avoiding the pitfalls of over-reliance on algorithmic recommendations.</p>
+<hr>
+<h2 id="appendix-instructions-to-run-the-code">Appendix: Instructions to Run the Code</h2>
+<p>See <code>README.md</code> in the project root for:</p>
+<ul>
+<li>Environment setup instructions</li>
+<li>Data file locations</li>
+<li>Notebook execution order</li>
+</ul>
+<hr>
+<p><em>Report generated: December 2025</em>
+<em>Model version: Random Forest v1.0</em>
+<em>Data period: 2016-2017</em></p>
+
+</body>
+</html>
