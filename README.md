@@ -4,7 +4,7 @@
 
 ## The Context: Staying Within the 1.5°C Carbon Budget
 
-The UN Environment Programme (UNEP) Emissions Gap Report 2025 states that the remaining carbon budget for a 66% likelihood of limiting warming to 1.5°C is only approximately 80 GtCO₂, a budget expected to be exhausted before 2030 at current emission rates of roughly 40 GtCO₂ annually (Forster et al., 2025; UN Environment Programme, 2025). As the built environment is a major contributor to global energy consumption and associated \(\text{CO}_{2}\) emissions, it offers substantial potential for immediate and scalable reductions. This project directly addresses this potential by employing machine learning (ML) regression techniques to pinpoint specific inefficiencies within real-world building data, providing actionable insights for targeted carbon reduction strategies.
+The UN Environment Programme (UNEP) Emissions Gap Report 2025 states that the remaining carbon budget for a 66% likelihood of limiting warming to 1.5°C is only approximately 80 GtCO₂, a budget expected to be exhausted before 2030 at current emission rates of roughly 40 GtCO₂ annually (Forster et al., 2025; UN Environment Programme, 2025). As the built environment is a major contributor to global energy consumption and associated CO₂ emissions, it offers substantial potential for immediate and scalable reductions. This project directly addresses this potential by employing machine learning (ML) regression techniques to pinpoint specific inefficiencies within real-world building data, providing actionable insights for targeted carbon reduction strategies.
 
 <ins>References:</ins>
 
