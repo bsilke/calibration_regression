@@ -105,7 +105,6 @@ A cross-sectional regression approach was employed:
     │   ├── meta_data_preprocessing.ipynb      # Metadata cleaning
     │   ├── meter_data_cleaned_preprocessing.ipynb  # Cleaned meter aggregation
     │   ├── weather_preprocessing.ipynb        # Weather data processing
-    │   ├── EDA.ipynb                          # Exploratory data analysis
     │   └── modeling_final.ipynb               # Final modeling notebook ⭐
     ├── data/
     │   ├── df_analysis.csv                    # Dataset for the analysis

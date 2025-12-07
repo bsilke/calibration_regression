@@ -304,7 +304,7 @@ Prediction accuracy fluctuates significantly across different areas:
 High-error regions include Princeton (160% RMSE), Westminster (150%), and Orlando (136%).
 Zoutkamp exhibits a consistent bias toward under-prediction (+0.33 mean residual).
 Stakeholders in these specific high-error regions must be informed of the greater uncertainty surrounding their predictions.
-Ultimately, the model is limited by its reliance on only five available features and a two-year time horizon. Future improvements hinge entirely on incorporating richer metadata, such as the missing yearbuilt values that were previously imputed using site-level medians.
+Ultimately, the model is limited by its reliance on only five available features and a two-year time horizon. Future improvements will hinge on incorporating richer metadata, such as the missing yearbuilt values that were previously imputed using site-level medians, or by including additional features such building height.
 
 ---
 
