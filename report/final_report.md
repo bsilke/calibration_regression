@@ -26,6 +26,10 @@
 
 ---
 
+*MAIN REPORT STARTS HERE*
+
+---
+
 ## 1. Introduction
 
 ### 1.1 Background
@@ -284,11 +288,11 @@ This finding has direct operational implications. Energy efficiency programs sho
 
 ![Savings by Region](figures/savings_by_region.png)
 
-*Figure 8: Horizontal bar chart showing total energy savings potential by geographic region. Regions are sorted by savings magnitude. Red bars indicate regions accounting for >50% of total savings. An annotation highlights the dominant region.*
+*Figure 8: Horizontal bar chart showing total energy savings potential by geographic region. Regions are sorted by savings magnitude. Red bars indicate regions accounting for >50% of total savings.*
 
 The chart in Figure 8 reveals the geographic concentration of energy savings opportunities, enabling targeted deployment of retrofit programs. Buildings in regions with high total savings potential should be prioritized for energy audits. Westminster accounts for the vast majority of identified savings (90.9%). Some regions contribute minimal savings, suggesting limited efficiency problems or small building portfolios.
-The analysis has sh Westminster's dominance is due to real efficiency problems, not simply having more buildings:
-Westminster has only **10.4% of test set buildings** (121/1166) and **10.2% of underperforming buildings** (66/649). Yet Westminster accounts for **90.9% of total savings potential**. This inefficiency suggests Westminster's building stock has systemic problems—possibly older construction, deferred maintenance, or different building standards in England. This finding strongly supports prioritizing Westminster for energy audits, as the potential return on investment is dramatically higher than other regions.
+The analysis has shown Westminster's dominance is due to real efficiency problems, not simply having more buildings:
+Westminster has only **10.4% of test set buildings** (121/1166) and **10.2% of underperforming buildings** (66/649). Yet Westminster accounts for **90.9% of total savings potential**. This inefficiency suggests Westminster's building stock has systemic problems—possibly older construction, deferred maintenance, or different building standards in England. This finding strongly supports prioritizing Westminster for energy audits.
 
 ---
 
