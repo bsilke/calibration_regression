@@ -82,7 +82,7 @@ The dataset consists of three primary components:
 
 A cross-sectional regression approach was employed:
 
-1. **Data Aggregation:** Hourly meter readings were summed to annual totals per building-meter-year combination, then converted to Energy Use Intensity (EUI = kWh/sqm)
+1. **Data Aggregation:** Hourly meter readings were summed to annual totals per building-meter-year combination, then converted to Energy Use Intensity (EUI = kWh/sqm) which is the total meter reading normalized by the building's square meter
 2. **Target Variable:** `log_eui` — log-transformed EUI using `log1p(eui)` to handle skewed distribution
 3. **Features Used:**
    - Categorical: `primaryspaceusage`, `region`, `meter`
@@ -105,6 +105,7 @@ A cross-sectional regression approach was employed:
     │   ├── meta_data_preprocessing.ipynb      # Metadata cleaning
     │   ├── meter_data_cleaned_preprocessing.ipynb  # Cleaned meter aggregation
     │   ├── weather_preprocessing.ipynb        # Weather data processing
+    │   ├── EDA                                # Visualizing important characteristics of the dataset
     │   └── modeling_final.ipynb               # Final modeling notebook ⭐
     ├── data/
     │   ├── df_analysis.csv                    # Dataset for the analysis
