@@ -109,6 +109,7 @@ A cross-sectional regression approach was employed:
     │   └── modeling_final.ipynb               # Final modeling notebook ⭐
     ├── data/
     │   ├── df_analysis.csv                    # Dataset for the analysis
+    │   ├── df_complete.csv                    # Dataset for EDA
     ├── report/
     │   ├── final_report.md                    # Technical report & AI ethical considerations
     │   └── figures/                           # Exported visualizations
